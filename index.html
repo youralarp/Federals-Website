@@ -7,14 +7,63 @@
 <title>Federals Site</title>
 
 <style>
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     height: 100vh;
-    background: radial-gradient(circle at top, #1a1a1a, #000);
+    background:
+        radial-gradient(circle at 50% 15%, rgba(88,101,242,.18), transparent 35%),
+        radial-gradient(circle at 85% 85%, rgba(255,255,255,.05), transparent 30%),
+        #050505;
     font-family: Arial, sans-serif;
     color: white;
     overflow: hidden;
 }
+
+
+/* MOVING PARTICLES */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.10) 1px, transparent 1px);
+    background-size: 55px 55px;
+    animation: drift 35s linear infinite;
+    z-index: -2;
+}
+
+@keyframes drift {
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(250px,250px);
+    }
+}
+
+
+/* BLUE CENTER GLOW */
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: #5865F2;
+    filter: blur(200px);
+    opacity: .12;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+
 
 /* ENTER SCREEN */
 #enter {
@@ -28,84 +77,160 @@ body {
     cursor: pointer;
 }
 
+
 #enter h1 {
     font-size: 35px;
     animation: pulse 1.5s infinite;
 }
 
+
 @keyframes pulse {
     50% {
-        opacity: .5;
+        opacity: .4;
     }
 }
 
 
-/* CARD */
+
+/* PROFILE CARD */
 .card {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     text-align: center;
     padding: 30px;
-    width: 300px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
+    width: 320px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.8),
+        0 0 80px rgba(88,101,242,.15);
+
+    animation: fade 1s ease;
 }
+
+
+@keyframes fade {
+    from {
+        opacity:0;
+        transform:translate(-50%, -45%);
+    }
+
+    to {
+        opacity:1;
+        transform:translate(-50%, -50%);
+    }
+}
+
+
 
 img {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 0 25px rgba(88,101,242,.5);
 }
+
+
+
+h1 {
+    margin-bottom: 10px;
+}
+
+
 
 .button {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    background: #5865F2;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    display:block;
+
+    margin:12px 0;
+    padding:12px;
+
+    background:#5865F2;
+
+    color:white;
+    text-decoration:none;
+
+    border-radius:10px;
+
+    transition:.3s;
 }
 
+
+
 .button:hover {
-    background: #4752c4;
+
+    background:#4752c4;
+
+    transform:scale(1.05);
+
 }
+
 
 
 /* MUSIC BAR */
 .music-player {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 12px;
-    background: rgba(0,0,0,.6);
-    text-align: center;
+
+    position:fixed;
+
+    bottom:0;
+
+    width:100%;
+
+    height:50px;
+
+    background:rgba(0,0,0,.5);
+
+    backdrop-filter:blur(10px);
+
 }
+
+
+
 </style>
 
 </head>
 
 
+
 <body>
 
 
-<!-- CLICK TO START -->
+
+<!-- ENTER -->
 <div id="enter" onclick="startMusic()">
-    <h1>CLICK TO ENTER SITE</h1>
+
+<h1>CLICK TO ENTER SITE</h1>
+
 </div>
 
 
+
+
+<!-- PROFILE -->
+
 <div class="card">
 
-<img src="https://i.imgur.com/TLPb3go.jpeg" alt="PFP">
+
+<img src="https://i.imgur.com/TLPb3go.jpeg">
+
 
 <h1>Federal</h1>
 
+
 <p>discord is: f0deral</p>
+
 
 
 <a class="button" href="https://discord.gg/vRr8jgraW6" target="_blank">
@@ -113,45 +238,68 @@ Discord Server
 </a>
 
 
+
 <a class="button" href="https://t.me/youralarpnigga" target="_blank">
 Telegram
 </a>
 
 
+
 <br>
+
 I Will Update If Things Change
 
+
 </div>
+
+
+
 
 
 <!-- MUSIC -->
+
 <audio id="song" loop>
-    <source src="./mrpopular.mp3" type="audio/mpeg">
+
+<source src="./Stephanie.mp3" type="audio/mpeg">
+
 </audio>
 
 
-<div class="music-player">
-</div>
+
+
 
 
 
 <script>
 
+
 const song = document.getElementById("song");
+
 const enter = document.getElementById("enter");
 
+
 song.volume = 1.0;
+
 
 
 function startMusic(){
 
     song.play();
 
-    enter.style.display = "none";
+    enter.style.opacity = "0";
+
+    setTimeout(()=>{
+
+        enter.style.display="none";
+
+    },500);
 
 }
 
+
+
 </script>
+
 
 
 </body>

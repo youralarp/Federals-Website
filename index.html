@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Federal Site Niggers 🥹</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Federals Shit (Term/FAIl)</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-        }
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      font-family: Arial, sans-serif;
+      color: white;
+    }
 
-        header {
-            background: #1e293b;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
+    .card {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      width: 300px;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+    img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
 
-        h1, h2 {
-            color: #38bdf8;
-        }
+    h1 {
+      margin: 10px 0 5px;
+    }
 
-        section {
-            margin-bottom: 30px;
-            padding: 15px;
-            background: #1e293b;
-            border-radius: 10px;
-        }
+    p {
+      font-size: 14px;
+      opacity: 0.7;
+    }
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #020617;
-            font-size: 14px;
-            color: #94a3b8;
-        }
+    a.button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: #5865F2;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
 
-        a {
-            color: #38bdf8;
-        }
-    </style>
+    a.button:hover {
+      background: #4752c4;
+    }
+
+    /* 🔊 MUSIC BAR */
+    .music-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .controls input[type="range"] {
+      width: 150px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="card">
+    <img src="https://i.imgur.com/92MoNqI.png" alt="PFP">
+    <h1>Federal</h1>
+    <p>discord is: f0deral</p>
+    <p>Im Always Banned From Something...</p>
 
-<header>
-    Federal Site Niggers 🥹
-</header>
+    <a class="button" href="https://discord.gg/vRr8jgraW6" target="_blank">
+      Discord Server
+    </a>
 
-<div class="container">
+    <a class="button" href="https://t.me/@youralarpnigga" target="_blank">
+      Telegram
+    </a>
 
-    <section>
-        <h1>Discord</h1>
-        <p>Discord User: QUIT DISCORD</p>
-    </section>
-    
-    <section>
-        <h1>Other Website</h1>
-        <p>https://youralarp.github.io/Terms-Website-But-Better/</p>
-    </section>
+    <div>
+      <br> I Will Update If Things Change
+    </div>
+  </div>
 
-    <section>
-        <h2>Telegram</h2>
-        <p>
-            <a href="https://t.me/youralarpnigga" target="_blank">
-                @youralarpnigga
-            </a>
-        </p>
-    </section>
+  <!-- 🔊 MUSIC PLAYER -->
+  <div class="music-player">
+<audio id="song" loop>
+  <source src="mrpopular.mp3" type="audio/mpeg">
+</audio>
 
-</div>
+    <div class="controls">
+      🔊 Volume
+      <input type="range" min="0" max="1" step="0.01" value="0.5"
+             oninput="document.getElementById('song').volume = this.value">
+    </div>
+  </div>
 
 </body>
 </html>
